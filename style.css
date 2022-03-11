@@ -1,0 +1,302 @@
+/* --------------------------- Globals -------------------------------- */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --hue: 100;
+  --base-color: hsla(var(--hue), 37%, 21%, 1);
+  --background-color: white;
+  --alt-color: black;
+  --light-green: hsl(var(--hue), 63%, 41%);
+  --red: #e92929;
+}
+
+html {
+  font-size: 93.75%;
+}
+
+body {
+  background: #f0f2f5;
+  font-family: 'Poppins', sans-serif;
+}
+
+.sr-only {
+  position: absolute;
+  z-index: 0;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+.container {
+  width: min(90vw, 800px);
+  margin: auto;
+}
+
+h2 {
+  margin-top: 3.2rem;
+  margin-bottom: 0.8rem;
+  color: var(--alt-color);
+  font-weight: 400;
+}
+
+/* ------------------------ Links e Botões ---------------------------- */
+
+a {
+  color: var(--light-green);
+  text-decoration: none;
+}
+
+a:hover {
+  color: #3dd705;
+}
+
+button {
+  width: 100%;
+  height: 50px;
+  border: none;
+  color: white;
+  background: var(--base-color);
+  border-radius: 0.25rem;
+  padding: 0;
+  cursor: pointer;
+  transition: 0.15s;
+  font-family: 'Poppins', sans-serif;
+}
+
+button:hover {
+  background: var(--light-green);
+}
+
+.button.new {
+  margin-bottom: 0.8rem;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.button.cancel {
+  color: var(--red);
+  border: 2px var(--red) solid;
+  border-radius: 00.25rem;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.6;
+  cursor: pointer;
+}
+
+.button.cancel:hover {
+  opacity: 1;
+}
+
+.inputGroup.actions .button,
+.inputGroup.actions button {
+  width: 48%;
+}
+
+/* ---------------------------- Header -------------------------------- */
+header {
+  background: var(--base-color);
+  padding: 2rem 0 10rem;
+  text-align: center;
+}
+
+#logo {
+  color: white;
+  font-weight: 100;
+}
+
+/* --------------------------- Balance -------------------------------- */
+
+#balance {
+  margin-top: -5rem;
+}
+
+#balance h2 {
+  color: white;
+  margin-top: 0;
+}
+
+/* ---------------------------- Cards -------------------------------- */
+.card {
+  background-color: var(--background-color);
+  padding: 1.5rem 2rem;
+  border-radius: 0.25rem;
+  margin-bottom: 2rem;
+  color: var(--alt-color);
+}
+
+.card h3 {
+  font-weight: normal;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.card p {
+  font-size: 2rem;
+  line-height: 3rem;
+  margin-top: 1rem;
+}
+
+.card.total {
+  background-color: var(--light-green);
+  color: white;
+}
+
+.card.total.expense {
+  background-color: hsl(0, 63%, 41%);
+}
+
+/* ---------------------------- Table -------------------------------- */
+#transaction {
+  display: block;
+  width: 100%;
+  overflow-x: auto;
+}
+
+#data-table {
+  width: 100%;
+  border-spacing: 0 0.5rem;
+  color: black;
+}
+
+#data-table thead tr th:first-child,
+#data-table tbody tr td:first-child {
+  border-radius: 0.25rem 0 0 0.25rem;
+}
+
+#data-table thead tr th:last-child,
+#data-table tbody tr td:last-child {
+  border-radius: 0 0.25rem 0.25rem 0;
+}
+
+#data-table th {
+  background-color: white;
+  font-weight: 400;
+  padding: 1rem 2rem;
+  text-align: left;
+  color: var(--alt-color);
+}
+
+#data-table td {
+  background: white;
+  padding: 0.5rem 2rem;
+}
+
+#data-table tbody tr {
+  opacity: 0.7;
+}
+
+#data-table tbody tr:hover {
+  opacity: 1;
+}
+
+td.description {
+  color: var(--alt-color);
+}
+
+td.income {
+  color: green;
+}
+
+td.expense {
+  color: red;
+}
+
+td.date {
+  color: var(--alt-color);
+}
+
+/* ---------------------------- Modal -------------------------------- */
+
+.modal-overlay {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.7);
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  opacity: 0;
+  visibility: hidden;
+}
+
+.modal-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal {
+  background: #f0f2f5;
+  padding: 2.4rem;
+  position: relative;
+  width: 90%;
+  max-width: 500px;
+  border-radius: 0.25rem;
+}
+
+/* ----------------------------- Form --------------------------------- */
+#form {
+  max-width: 500px;
+}
+
+#form h2 {
+  margin-top: 0;
+}
+
+input {
+  border: none;
+  border-radius: 0.25rem;
+  padding: 0.8rem;
+  width: 100%;
+}
+
+.inputGroup {
+  margin-top: 0.8rem;
+}
+
+.inputGroup .help {
+  opacity: 0.4;
+}
+
+.inputGroup.actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* ---------------------------- Footer -------------------------------- */
+footer {
+  text-align: center;
+  padding: 4rem 0 2rem;
+  color: var(--alt-color);
+  opacity: 0.5;
+}
+
+/* ---------------------------- Responsividade -------------------------------- */
+
+@media (min-width: 768px) {
+  html {
+    font-size: 87.5%;
+  }
+
+  #balance {
+    display: grid;
+    gap: 1.5rem;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
